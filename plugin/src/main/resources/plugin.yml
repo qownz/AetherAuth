@@ -1,0 +1,69 @@
+name: AetherAuth
+version: '${project.version}'
+main: com.aetherauth.AetherAuthPlugin
+api-version: '1.13'
+description: Modern, version-independent authentication with prompts, dialogs and encrypted local storage.
+author: AetherAuth
+website: https://github.com/qownz/AetherAuth
+prefix: AetherAuth
+
+commands:
+  login:
+    description: Sunucuya giriş yap.
+    usage: /login [şifre]
+    aliases: [l, giris]
+  register:
+    description: Yeni bir hesap oluştur.
+    usage: /register [mail] [şifre]
+    aliases: [reg, kayit]
+  logout:
+    description: Oturumunu kapat.
+    usage: /logout
+    aliases: [cikis]
+  changepassword:
+    description: Şifreni değiştir.
+    usage: /changepassword <eski> <yeni>
+    aliases: [sifredegistir]
+  changemail:
+    description: E-posta adresini değiştir.
+    usage: /changemail <şifre> <yeni mail>
+    aliases: [maildegistir]
+  aetherauth:
+    description: AetherAuth yönetim komutları.
+    usage: /aetherauth help
+    aliases: [aa, authadmin]
+    permission: aetherauth.admin
+
+permissions:
+  aetherauth.admin:
+    description: Tüm AetherAuth yönetim izinleri.
+    default: op
+    children:
+      aetherauth.admin.reload: true
+      aetherauth.admin.info: true
+      aetherauth.admin.unregister: true
+      aetherauth.admin.reset: true
+      aetherauth.admin.backup: true
+      aetherauth.admin.stats: true
+      aetherauth.admin.logout: true
+  aetherauth.admin.reload:
+    description: Ayar dosyasını yeniden yükler.
+    default: op
+  aetherauth.admin.info:
+    description: Hesap bilgilerini görüntüler.
+    default: op
+  aetherauth.admin.unregister:
+    description: Hesap siler.
+    default: op
+  aetherauth.admin.reset:
+    description: Şifre ve e-posta sıfırlar.
+    default: op
+  aetherauth.admin.backup:
+    description: Veritabanı yedeği alır.
+    default: op
+  aetherauth.admin.stats:
+    description: İstatistikleri görüntüler.
+    default: op
+  aetherauth.admin.logout:
+    description: Kendi veya başka bir oyuncunun oturumunu kapatır.
+    default: op

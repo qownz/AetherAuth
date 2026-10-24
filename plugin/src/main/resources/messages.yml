@@ -1,0 +1,210 @@
+# ============================================================
+#  AetherAuth - messages.yml
+#  Tüm oyuncu mesajları burada. Renkler: MiniMessage ve & kodları.
+#  Yer tutucular: {player}, {prefix}, {seconds}, {min}, {reason} ...
+#  Bu dosya her yeniden yüklemede okunur; yorumlarınız korunur.
+# ============================================================
+
+
+# Mesajların başına eklenen etiket. /prefix
+prefix: '<gradient:#6EE7FF:#A78BFA><bold>AETHER</bold></gradient> <dark_gray>»</dark_gray> '
+
+# Uzun ayırıcı çizgi.
+divider: '<dark_gray><strikethrough>                                                  </strikethrough></dark_gray>'
+
+# Ekran başlıkları (title).
+title:
+  register: '<gradient:#6EE7FF:#A78BFA><bold>KAYIT</bold></gradient>'
+  login: '<gradient:#6EE7FF:#A78BFA><bold>GİRİŞ</bold></gradient>'
+  success: '<gradient:#7CF29B:#6EE7FF><bold>HOŞ GELDİN</bold></gradient>'
+  timeout: '<#FF6B81><bold>ZAMAN AŞIMI</bold></#FF6B81>'
+
+# Ekran alt başlıkları (subtitle).
+subtitle:
+  register: '<gray>Hesabını oluşturmak için formu doldur</gray>'
+  login: '<gray>Devam etmek için şifreni gir</gray>'
+  success: '<gray>İyi oyunlar, <white>{player}</white>!</gray>'
+  timeout: '<gray>{seconds} saniye içinde giriş yapmadın.</gray>'
+
+# Action bar mesajları.
+actionbar:
+  waiting: '<gray>Kimlik doğrulaması bekleniyor <dark_gray>•</dark_gray> <#FFD166>/login</#FFD166> <gray>veya</gray> <#FFD166>/register</#FFD166>'
+  processing: '<#FFD166>İşleniyor...</#FFD166>'
+  locked: '<#FF6B81>Kilitli <dark_gray>•</dark_gray> <white>{seconds}s</white></#FF6B81>'
+
+# Boss bar mesajı.
+bossbar:
+  waiting: '<gradient:#6EE7FF:#A78BFA>Kimlik doğrulaması bekleniyor</gradient> <dark_gray>•</dark_gray> <white>{seconds}s</white>'
+
+# Oyuna girişte gösterilen mesajlar.
+join:
+  checking: '{prefix}<gray>Hesabın kontrol ediliyor...</gray>'
+  register-required: '{prefix}<white>Sunucuya hoş geldin <#6EE7FF><bold>{player}</bold></#6EE7FF><white>!</white> <gray>Devam etmek için kayıt olmalısın.</gray>'
+  login-required: '{prefix}<white>Tekrar hoş geldin <#6EE7FF><bold>{player}</bold></#6EE7FF><white>!</white> <gray>Devam etmek için giriş yapmalısın.</gray>'
+  usage:
+    register: '{prefix}<gray>Kayıt olmak için: <#FFD166>/register <mail> <şifre></#FFD166></gray>'
+    login: '{prefix}<gray>Giriş yapmak için: <#FFD166>/login <şifre></#FFD166></gray>'
+  autologin: '{prefix}<#7CF29B>Oturumun doğrulandı, tekrar hoş geldin!</#7CF29B>'
+
+# Giriş yapmamışken sohbet engellendiğinde.
+chat:
+  blocked: '{prefix}<#FF6B81>Sohbeti kullanmak için önce giriş yapmalısın.</#FF6B81>'
+
+# Giriş yapmamışken komut engellendiğinde.
+command:
+  blocked: '{prefix}<#FF6B81>Bu komutu kullanmak için önce giriş yapmalısın.</#FF6B81>'
+
+# /register komutu ve kayıt hataları.
+register:
+  usage: '{prefix}<gray>Kullanım: <white>/register <mail> <şifre></white></gray>'
+  success: '{prefix}<#7CF29B><bold>Kayıt başarılı!</bold></#7CF29B> <gray>Artık oynamaya başlayabilirsin.</gray>'
+  email-taken: '{prefix}<#FF6B81>Bu e-posta adresi zaten kullanılıyor.</#FF6B81>'
+  email-invalid: '{prefix}<#FF6B81>Geçerli bir e-posta adresi gir.</#FF6B81>'
+  password-weak: '{prefix}<#FF6B81>Şifren yeterince güçlü değil: <white>{reason}</white></#FF6B81>'
+  password-mismatch: '{prefix}<#FF6B81>Şifreler birbiriyle uyuşmuyor.</#FF6B81>'
+  limit: '{prefix}<#FF6B81>Bu IP adresinden en fazla <white>{max}</white> hesap oluşturulabilir.</#FF6B81>'
+  cooldown: '{prefix}<gray>Çok hızlı denedin. <white>{seconds}</white> saniye beklemelisin.</gray>'
+  already: '{prefix}<#FFD166>Bu hesap zaten kayıtlı. <white>/login</white> ile giriş yapabilirsin.</#FFD166>'
+  disabled: '{prefix}<#FF6B81>Kayıt şu anda kapalı.</#FF6B81>'
+  cancelled: '{prefix}<#FF6B81>Kayıt başka bir eklenti tarafından iptal edildi.</#FF6B81>'
+
+# /login komutu ve giriş hataları.
+login:
+  usage: '{prefix}<gray>Kullanım: <white>/login <şifre></white></gray>'
+  success: '{prefix}<#7CF29B><bold>Giriş başarılı!</bold></#7CF29B> <gray>İyi oyunlar.</gray>'
+  failed: '{prefix}<#FF6B81>Şifre hatalı.</#FF6B81> <gray>Kalan deneme: <white>{remaining}</white></gray>'
+  locked: '{prefix}<#FF6B81>Çok fazla hatalı deneme yaptın. <white>{seconds}</white> saniye sonra tekrar dene.</#FF6B81>'
+  unknown: '{prefix}<gray>Bu isimle kayıtlı bir hesap yok. <white>/register</white> ile kayıt olabilirsin.</gray>'
+  already: '{prefix}<#7CF29B>Zaten giriş yapmış durumdasın.</#7CF29B>'
+  timeout: '<#FF6B81><bold>Zaman aşımı</bold></#FF6B81>
+<gray>{seconds} saniye içinde giriş yapmadığın için sunucudan çıkarıldın.</gray>'
+  kicked: '<#FF6B81><bold>Çok fazla hatalı deneme</bold></#FF6B81>
+<gray>Lütfen daha sonra tekrar dene.</gray>'
+  cancelled: '{prefix}<gray>Giriş iptal edildi. <white>/login</white> ile tekrar deneyebilirsin.</gray>'
+  processing: '{prefix}<#FFD166>Giriş bilgileri doğrulanıyor...</#FFD166>'
+  rate-limited: '{prefix}<#FF6B81>Çok fazla deneme yaptın. Lütfen biraz bekle.</#FF6B81>'
+  rehash-failed: '{prefix}<#FF6B81>Hesap verisi okunamadı. Lütfen yöneticiye başvur.</#FF6B81>'
+
+# Çıkış mesajları (sadece yetkililer kullanabilir).
+logout:
+  success: '{prefix}<gray>Çıkış yaptın. Devam etmek için tekrar giriş yapmalısın.</gray>'
+  not-authenticated: '{prefix}<#FF6B81>Giriş yapmadığın için çıkış yapamazsın.</#FF6B81>'
+  no-permission: '{prefix}<#FF6B81>Çıkış komutunu sadece yetkililer kullanabilir.</#FF6B81>'
+  target: '{prefix}<#7CF29B><white>{player}</white> adlı oyuncunun oturumu kapatıldı.</#7CF29B>'
+  target-not-found: '{prefix}<#FF6B81><white>{player}</white> adlı oyuncu çevrimiçi değil.</#FF6B81>'
+
+# Şifre değiştirme.
+password:
+  usage: '{prefix}<gray>Kullanım: <white>/changepassword <eski> <yeni></white></gray>'
+  changed: '{prefix}<#7CF29B>Şifren başarıyla güncellendi.</#7CF29B>'
+  old-wrong: '{prefix}<#FF6B81>Mevcut şifren hatalı.</#FF6B81>'
+  same: '{prefix}<#FF6B81>Yeni şifren eskisiyle aynı olamaz.</#FF6B81>'
+  not-authenticated: '{prefix}<#FF6B81>Önce giriş yapmalısın.</#FF6B81>'
+
+# E-posta değiştirme.
+email:
+  usage: '{prefix}<gray>Kullanım: <white>/changemail <şifre> <yeni mail></white></gray>'
+  changed: '{prefix}<#7CF29B>E-posta adresin güncellendi.</#7CF29B>'
+  taken: '{prefix}<#FF6B81>Bu e-posta adresi zaten kullanılıyor.</#FF6B81>'
+  invalid: '{prefix}<#FF6B81>Geçerli bir e-posta adresi gir.</#FF6B81>'
+  wrong-password: '{prefix}<#FF6B81>Şifren hatalı.</#FF6B81>'
+  same: '{prefix}<#FF6B81>Bu zaten mevcut e-posta adresin.</#FF6B81>'
+
+# Genel mesajlar.
+common:
+  no-permission: '{prefix}<#FF6B81>Bu işlem için yetkin yok.</#FF6B81>'
+  player-only: '{prefix}<#FF6B81>Bu komut sadece oyuncular tarafından kullanılabilir.</#FF6B81>'
+  not-authenticated: '{prefix}<#FF6B81>Önce giriş yapmalısın.</#FF6B81>'
+  already-authenticated: '{prefix}<#7CF29B>Zaten giriş yapmış durumdasın.</#7CF29B>'
+  internal-error: '{prefix}<#FF6B81>Bir hata oluştu. Lütfen yöneticiye başvur.</#FF6B81>'
+  unknown-subcommand: '{prefix}<gray>Bilinmeyen komut. <white>/aetherauth</white> yazarak yardım alabilirsin.</gray>'
+
+# Yönetici komutları (/aetherauth).
+admin:
+  usage: |-
+    <gradient:#6EE7FF:#A78BFA><bold>AETHER AUTH</bold></gradient> <dark_gray>•</dark_gray> <gray>yardım</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth reload</white> <dark_gray>-</dark_gray> <gray>ayarları yenile</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth info <oyuncu></white> <dark_gray>-</dark_gray> <gray>hesap bilgisi</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth unregister <oyuncu></white> <dark_gray>-</dark_gray> <gray>hesabı sil</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth resetpassword <oyuncu> [yeni]</white> <dark_gray>-</dark_gray> <gray>şifre sıfırla</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth resetmail <oyuncu> <yeni-mail></white> <dark_gray>-</dark_gray> <gray>e-posta sıfırla</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth backup</white> <dark_gray>-</dark_gray> <gray>yedek al</gray>
+    <dark_gray>▪</dark_gray> <white>/aetherauth stats</white> <dark_gray>-</dark_gray> <gray>istatistikler</gray>
+  reloaded: '{prefix}<#7CF29B>Yapılandırma yeniden yüklendi.</#7CF29B> <dark_gray>({time} ms)</dark_gray>'
+  not-found: '{prefix}<#FF6B81><white>{player}</white> için kayıtlı bir hesap bulunamadı.</#FF6B81>'
+  info: |-
+    <gradient:#6EE7FF:#A78BFA><bold>HESAP BİLGİSİ</bold></gradient>
+    <dark_gray>▪</dark_gray> <gray>Oyuncu:</gray> <white>{player}</white>
+    <dark_gray>▪</dark_gray> <gray>UUID:</gray> <white>{uuid}</white>
+    <dark_gray>▪</dark_gray> <gray>E-posta:</gray> <white>{email}</white>
+    <dark_gray>▪</dark_gray> <gray>Kayıt:</gray> <white>{created}</white>
+    <dark_gray>▪</dark_gray> <gray>Son giriş:</gray> <white>{last_login}</white>
+    <dark_gray>▪</dark_gray> <gray>Son IP:</gray> <white>{ip}</white>
+    <dark_gray>▪</dark_gray> <gray>Yan hesap:</gray> <white>{alt_accounts}</white>
+  unregistered: '{prefix}<#7CF29B><white>{player}</white> hesabı silindi.</#7CF29B>'
+  unregistered-kick: |-
+    <#FF6B81><bold>Hesabın silindi</bold></#FF6B81>
+    <gray>Yeniden kayıt olabilirsin.</gray>
+  reset: '{prefix}<#7CF29B><white>{player}</white> için yeni şifre: <#FFD166><bold>{password}</bold></#FFD166></#7CF29B>'
+  reset-target: '{prefix}<#FFD166>Şifren bir yönetici tarafından sıfırlandı. Yeni şifreni öğrenmek için yöneticiyle iletişime geç.</#FFD166>'
+  resetmail: '{prefix}<#7CF29B><white>{player}</white> için yeni e-posta: <#FFD166>{email}</#FFD166></#7CF29B>'
+  resetmail-target: '{prefix}<#FFD166>E-posta adresin bir yönetici tarafından değiştirildi.</#FFD166>'
+  resetmail-invalid: '{prefix}<#FF6B81>Geçerli bir e-posta adresi gir.</#FF6B81>'
+  resetmail-same: '{prefix}<#FF6B81>Bu e-posta adresi zaten bu hesaba ait.</#FF6B81>'
+  resetmail-taken: '{prefix}<#FF6B81>Bu e-posta adresi başka bir hesapta kullanılıyor.</#FF6B81>'
+  backup: '{prefix}<#7CF29B>Yedek oluşturuldu: <white>{file}</white></#7CF29B>'
+  stats: |-
+    <gradient:#6EE7FF:#A78BFA><bold>İSTATİSTİK</bold></gradient>
+    <dark_gray>▪</dark_gray> <gray>Kayıtlı oyuncu:</gray> <white>{registered}</white>
+    <dark_gray>▪</dark_gray> <gray>Toplam yan hesap:</gray> <white>{alt_accounts}</white>
+    <dark_gray>▪</dark_gray> <gray>Anlık giriş:</gray> <white>{online}</white>
+    <dark_gray>▪</dark_gray> <gray>Bekleyen:</gray> <white>{pending}</white>
+    <dark_gray>▪</dark_gray> <gray>Veritabanı:</gray> <white>{size}</white>
+    <dark_gray>▪</dark_gray> <gray>Sunucu:</gray> <white>{version}</white>
+    <dark_gray>▪</dark_gray> <gray>Dialog:</gray> <white>{dialog}</white>
+  invalid-usage: '{prefix}<gray>Kullanım: <white>{usage}</white></gray>'
+  backup-failed: '{prefix}<#FF6B81>Yedek alınamadı: <white>{reason}</white></#FF6B81>'
+  unknown-player: '{prefix}<#FF6B81>Oyuncu bulunamadı: <white>{player}</white></#FF6B81>'
+
+# Paper dialog ekranındaki metinler.
+dialog:
+  register:
+    title: '<gradient:#6EE7FF:#A78BFA><bold>AETHER AUTH</bold></gradient>'
+    body1: '<white>Merhaba <#6EE7FF><bold>{player}</bold></#6EE7FF>!</white> <gray>Lütfen kaydını tamamla.</gray>'
+    body2: '<gray>Hesabın tamamen sana özel ve güvende.</gray>'
+  login:
+    title: '<gradient:#6EE7FF:#A78BFA><bold>AETHER AUTH</bold></gradient>'
+    body1: '<white>Tekrar hoş geldin <#6EE7FF><bold>{player}</bold></#6EE7FF>!</white>'
+    body2: '<gray>Devam etmek için şifreni gir.</gray>'
+  email:
+    label: '<white>Mail</white>'
+  password:
+    label: '<white>Şifre</white>'
+    label-register: '<white>Şifre</white> <dark_gray>(en az {min} karakter)</dark_gray>'
+  confirm:
+    label: '<white>Şifre (tekrar)</white>'
+  submit:
+    register: '<#7CF29B><bold>Kayıt Ol</bold></#7CF29B>'
+    login: '<#7CF29B><bold>Giriş Yap</bold></#7CF29B>'
+  cancel: '<gray>Vazgeç</gray>'
+  change:
+    title: '<gradient:#6EE7FF:#A78BFA><bold>ONAY</bold></gradient>'
+    email-body1: '<white>E-posta değişikliğini onayla</white>'
+    email-body2: '<gray>Yeni adresi kontrol et, gerekirse düzenle.</gray>'
+    password-body1: '<white>Şifre değişikliğini onayla</white>'
+    password-body2: '<gray>Yeni şifreni kontrol et, gerekirse düzenle.</gray>'
+    current-label: '<white>Mevcut şifre</white>'
+    new-email: '<white>Yeni e-posta</white>'
+    new-password: '<white>Yeni şifre</white>'
+    submit: '<#7CF29B><bold>Değiştir</bold></#7CF29B>'
+    cancel: '<gray>Vazgeç</gray>'
+
+# Değişiklik işlemleri.
+change:
+  cancelled: '{prefix}<gray>Değişiklik iptal edildi.</gray>'
+
+# Yeni sürüm bildirimi (sunucu açıldıktan sonra giren ilk op görür).
+update:
+  available: |-
+    {prefix}<#FFD166><bold>Yeni AetherAuth sürümü mevcut!</bold></#FFD166> <gray>Mevcut: <white>{current}</white> <dark_gray>•</dark_gray> Yeni: <white>{latest}</white></gray>
+    {prefix}<gray>İndirmek için: <#6EE7FF>{url}</#6EE7FF></gray>

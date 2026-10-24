@@ -1,0 +1,156 @@
+# ============================================================
+#  AetherAuth - config.yml
+#  Renkler: MiniMessage (<#RRGGBB>, <gradient:#...>) ve & renk kodları.
+#  Bu dosya her yeniden yüklemede okunur; yorumlarınız korunur.
+# ============================================================
+
+configVersion: 1
+
+# ---------------------------- Veritabanı ----------------------------
+database:
+  # Veritabanı dosyası. Her zaman plugins/AetherAuth/database/ içine yazılır.
+  file: 'aetherauth.db'
+  # Aynı anda açık tutulacak SQLite bağlantısı sayısı (1-16).
+  poolSize: 4
+  # Veritabanı meşgulse en fazla kaç ms beklensin.
+  busyTimeoutMs: 5000
+  # Bellekte tutulacak hesap sayısı. Büyük sunucularda artırılabilir.
+  cacheSize: 4096
+  # SQLite senkronizasyon modu: NORMAL, FULL veya OFF.
+  synchronous: 'NORMAL'
+  # Sunucu açılırken otomatik yedek alınsın mı?
+  backupOnStart: false
+  # Kaç adet yedek saklanacak. Yedekler database/backups/ içindedir.
+  backupsToKeep: 7
+  # Kaç işlem kaydı tutulacak (eski kayıtlar temizlenir).
+  auditRetention: 20000
+
+# ---------------------------- Güvenlik ----------------------------
+security:
+  # Şifre hashleme turu. Yüksek = daha güvenli ama daha yavaş giriş.
+  iterations: 40000
+  # Şifreleme modu: GCM veya CBC_HMAC.
+  cipher: 'GCM'
+  # Her hesap için üretilen rastgele tuz boyutu (bayt).
+  saltBytes: 32
+  # Giriş sırasında eski/zayıf hash otomatik yenilensin mi?
+  rehashOnLogin: true
+  # E-posta adresleri veritabanında şifreli tutulsun mu?
+  encryptEmail: true
+
+# ---------------------------- Giriş / Kayıt ----------------------------
+auth:
+  # Kayıt için e-posta zorunlu olsun mu?
+  requireEmail: true
+  # Şifre uzunluk sınırları.
+  minPasswordLength: 6
+  maxPasswordLength: 64
+  # Ek şifre kuralları (isteğe bağlı).
+  requireDigit: false
+  requireUppercase: false
+  requireSpecial: false
+  # Çok kullanılan/zayıf şifreleri engelle.
+  blockCommonPasswords: true
+
+  # Kaç hatalı denemeden sonra hesap kilitlenir ve kaç saniye kilitli kalır.
+  maxAttempts: 5
+  lockoutSeconds: 60
+  # Giriş yapılmadan geçebilecek en fazla süre (saniye). 0 = kapalı.
+  timeoutSeconds: 120
+  # Aynı IP'den en fazla kaç hesap açılabilir. 0 = sınırsız.
+  maxAccountsPerIp: 3
+  # İki kayıt arasında beklenecek saniye.
+  registerCooldownSeconds: 8
+  # Çok fazla hatalı denemede oyuncu atılsın mı?
+  kickOnMaxAttempts: true
+  # Kayıt tamamen açık mı?
+  registerEnabled: true
+  # IP başına giriş denemesi sınırı ve zaman penceresi (saniye).
+  loginAttemptsPerIp: 20
+  loginWindowSeconds: 300
+  # Şifre hashleme için arka plan iş parçacığı sayısı.
+  workerThreads: 2
+
+  # IP oturumu: aynı IP tekrar girerse otomatik giriş.
+  sessionsEnabled: true
+  sessionDurationMinutes: 15
+  sessionBindIp: true
+
+  # Giriş öncesi oyuncu authSpawn noktasına ışınlansın mı?
+  teleportToAuthSpawn: false
+  # Girişten sonra eski konumuna dönsün mü?
+  returnAfterLogin: true
+  # Auth spawn koordinatları (teleportToAuthSpawn açıksa kullanılır).
+  authSpawn:
+    world: 'world'
+    x: 0.5
+    y: 64.0
+    z: 0.5
+    yaw: 0.0
+    pitch: 0.0
+
+  # Giriş yapmamış oyuncuya uygulanacak kısıtlamalar.
+  blindness: true
+  hidePlayers: true
+  freeze: true
+  blockChat: true
+  hideJoinMessage: true
+
+  # Giriş yapmadan kullanılmasına izin verilen komutlar.
+  allowedCommands:
+    - 'login'
+    - 'l'
+    - 'register'
+    - 'reg'
+    - 'kayit'
+    - 'giris'
+  # Giriş / kayıt / çıkış sonrası çalıştırılacak konsol komutları (isteğe bağlı).
+  # Örnek: - 'say {player} giris yapti'
+  loginCommands: []
+  registerCommands: []
+  logoutCommands: []
+
+# ---------------------------- Ekran (GUI) ----------------------------
+gui:
+  # auto = Paper 1.21.6+ ise dialog, değilse komut.
+  # dialog = sadece dialog, command = sadece komut.
+  mode: 'auto'
+  # Girişte dialog otomatik açılsın mı?
+  autoOpen: true
+  # Dialog açılmadan önce beklenecek tick (0 = anında).
+  openDelayTicks: 0
+  # Kayıtta şifre tekrarı istensin mi?
+  confirmPassword: true
+  # Kayıt ekranında e-posta alanı gösterilsin mi?
+  showEmail: true
+  # Dialog genişliği ve buton genişliği (piksel).
+  width: 320
+  buttonWidth: 150
+  # Şifre/e-posta değişikliklerinde onay ekranı açılsın mı?
+  confirmChanges: true
+  # ESC ile dialog kapatılabilsin mi? false = sadece Vazgeç kapatır.
+  canClose: false
+
+# ---------------------------- Güncelleme Kontrolü ----------------------------
+update-check:
+  # Sunucu açılırken GitHub'daki version.txt kontrol edilsin mi?
+  enabled: true
+  # GitHub'daki version.txt dosyasının ham (raw) adresi.
+  # Kendi repo adresinize göre değiştirin.
+  version-url: 'https://raw.githubusercontent.com/qownz/AetherAuth/main/version.txt'
+  # Yeni sürüm bulunduğunda oyuncuya ve konsola gösterilecek indirme adresi.
+  download-url: 'https://github.com/qownz/AetherAuth/releases/latest'
+
+# ---------------------------- Sesler ----------------------------
+sounds:
+  # Sesler tamamen açık/kapalı.
+  enabled: true
+  # Minecraft ses kimlikleri.
+  login: 'entity.player.levelup'
+  register: 'block.note_block.pling'
+  error: 'entity.villager.no'
+  click: 'ui.button.click'
+  logout: 'block.chest.close'
+  # Ses seviyesi (0.0 - 1.0) ve ton (0.5 - 2.0).
+  volume: 0.7
+  pitch: 1.0
